@@ -37,6 +37,10 @@ interface TmpFileInterface {
    * Create a temporary file.
    *
    * @param string $dir The directory where to create the temporary file.
+   *                    The temporary file MAY also be created in a subdirectory of the given directory.
+   *                    In any case it MUST be created in the given directory or its subdirectories,
+   *                    where the subdirectories MAY also be creating by the implementors to further
+   *                    lower the probability of name collisions.
    * @param string $prefix The prefix of the temporary file.
    * @param string $suffix The suffix of the temporary file.
    * @param bool $autoDelete Whether or not to automatically delete the temporary file. Defaults to TRUE.
