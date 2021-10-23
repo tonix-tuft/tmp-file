@@ -49,6 +49,7 @@ interface TmpFileInterface {
    *                         though they need to keep in mind that the deletion has to happen when the created temporary
    *                         file is really not needed anymore by the consuming code.
    * @return string The absolute filename of the temporary file created.
+   * @throws TmpFileException If the creation of the temporary file fails for some reason.
    */
   public function create($dir, $prefix, $suffix, $autoDelete = true);
 }

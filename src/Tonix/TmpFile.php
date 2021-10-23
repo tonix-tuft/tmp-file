@@ -63,6 +63,11 @@ class TmpFile implements TmpFileInterface {
       $dir,
       $prefix . $randomChars() . $suffix,
     ]);
+    if (!is_writable($dir)) {
+      throw new TmpFileException(
+        sprintf('Directory `%s` is not writable.', $dir)
+      );
+    }
     while (!($fd = @fopen($filePath, 'x+'))) {
       $attempts++;
       if ($attempts >= $attemptsPerCharsCount) {
